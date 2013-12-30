@@ -1,24 +1,26 @@
 package org.jboss.tools.vpe.javafx.browser.view;
 
-import at.bestsolution.efxclipse.runtime.workbench3.FXViewPart;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.web.WebView;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.part.ViewPart;
+import org.jboss.tools.vpe.javafx.browser.JavaFxBrowser;
 
-public class MyViewPart extends FXViewPart {
-	private WebView view;
+
+public class MyViewPart extends ViewPart {
+	public static final String ID = "pluginfx.views.MyViewPart";
+	private JavaFxBrowser javaFxBrowser;
+	private Browser swtWebKitBrowser;
+	
 	@Override
-	protected Scene createFxScene() {
-		BorderPane pane = new BorderPane();
-		view = new WebView();
-		view.getEngine().load("http://www.jboss.org");
-		pane.setCenter(view);
-		return new Scene(pane);
+	public void createPartControl(Composite parent) {
+		javaFxBrowser = new JavaFxBrowser(parent);
+		swtWebKitBrowser = new Browser(parent, SWT.WEBKIT);
+		swtWebKitBrowser.setUrl("http://webkit.org");
 	}
 
 	@Override
-	protected void setFxFocus() {
-		view.requestFocus();
+	public void setFocus() {
+		javaFxBrowser.setFocus();
 	}
 }

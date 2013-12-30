@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.jboss.tools.vpe.javafx.browser.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- at.bestsolution.efxclipse.runtime.workbench3
+ org.eclipse.fx.ui.workbench3
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javafx.animation;version="2.0.0",
  javafx.application;version="2.0.0",
@@ -35,5 +35,6 @@ Import-Package: javafx.animation;version="2.0.0",
  javafx.scene.transform;version="2.0.0",
  javafx.scene.web;version="2.0.0",
  javafx.stage;version="2.0.0",
+ javafx.embed.swt;version="2.0.0",
  javafx.util;version="2.0.0"
 Bundle-ActivationPolicy: lazy
